@@ -41,12 +41,16 @@ public class CountdownTimer : MonoBehaviour
 
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
-        float milliseconds = (time % 1) * 1000;
+        float milliseconds = (time % 1) * 100;
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        if (remainingTime <= 10)
+        if (remainingTime <= 10 && remainingTime > 0)
         {
             timeText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        }
+        if (remainingTime == 0)
+        {
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
     }
