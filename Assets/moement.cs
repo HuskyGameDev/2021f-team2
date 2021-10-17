@@ -20,7 +20,7 @@ public class moement : MonoBehaviour
     // Update is called once per frame
    private void Update()
     {
-        //animator.SetBool("isPunch", false);
+        animator.SetBool("isPunch", false);
         if (isGrounded == true)
             animator.SetBool("isGrounded", true);
         var movement = Input.GetAxis("Horizontal");
@@ -38,11 +38,11 @@ public class moement : MonoBehaviour
             animator.SetBool("isJump", false);
 
         }
-       /* if (Input.GetKey("up") && isGrounded == true)
+       if (Input.GetKey("up") && isGrounded == true)
         {
             transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * 0;
             animator.SetBool("isPunch", true);
-        }*/
+        }
 
 
        
