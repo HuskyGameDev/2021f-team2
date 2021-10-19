@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
 
     Rigidbody2D rb;
     Health testHealth;  //rename this for better context in the future.
-    public float speed = 3.5f;
+    public float speed = 0.5f;
     public float JumpForce = 13;
 
     // Start is called before the first frame update
@@ -20,11 +20,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis("Horizontal");
+        //Horizontal_P2
 
-        Vector3 movement = new Vector3(inputX, 0f, 0f);
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(Vector2.left * speed);
 
-        transform.position += (Time.deltaTime * speed * movement);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(Vector2.right * speed);
+        }
 
         if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f) //if jump pressed and not currently moving through the air
         {
