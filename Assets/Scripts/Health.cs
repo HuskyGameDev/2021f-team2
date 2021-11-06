@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
 {
 
     public int maxHealth = 10;
+    public int lives = 3;
     int currentHealth;
 
     // Start is called before the first frame update
@@ -49,7 +50,8 @@ public class Health : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            //die die you zombie bastards
+            lives--;
+        
         }
     }
 }

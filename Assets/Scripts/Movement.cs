@@ -9,7 +9,8 @@ public class Movement : MonoBehaviour
     Health testHealth;  //rename this for better context in the future.
     public float speed = 0.5f;
     public float JumpForce = 13;
-
+    public UIManager myObject;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class Movement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f) //if jump pressed and not currently moving through the air
         {
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            myObject.GetComponent<UIManager>().updateStocks(2);
         }
 
         if (Input.GetButtonDown("Fire1")) //This is debug code. Remove when uneeded. THis is testing the player getting hit.

@@ -22,13 +22,13 @@ public class Movement_P2 : MonoBehaviour
     {
         //Horizontal_P2
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             rb.AddForce(Vector2.left * speed);
             
 
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce(Vector2.right * speed);
         }
