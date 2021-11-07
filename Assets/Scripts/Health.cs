@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-
-    public int maxHealth = 10;
+    public HealthBar healthBar;
+    public int maxHealth = 100;
     int currentHealth;
 
     // Start is called before the first frame update
@@ -31,15 +31,20 @@ public class Health : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        currentHealth = currentHealth - damage;
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         CheckDeath();
     }
-
+            
 
     // Update is called once per frame
     void Update()
     {
-        
+        // test input for taking damage
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            takeDamage(10);
+        }
     }
 
     void CheckDeath()   //Called whenever a player takes damage.
