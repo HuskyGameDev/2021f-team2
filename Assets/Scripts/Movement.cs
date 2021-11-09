@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     Health testHealth;  //rename this for better context in the future.
     public float speed = 3.5f;
     public float JumpForce = 13;
+    public Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +33,21 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
         }
 
-        if (Input.GetButtonDown("Fire1")) //This is debug code. Remove when uneeded. THis is testing the player getting hit.
+        if (Input.GetButtonDown("Fire1"))
         {
-            testHealth.takeDamage(1);
-        }//end debug code.
+           //What we want to add is a way to prevent users from mashing the Fire1 button
+           //And a way to stop player movement
+            animator.SetTrigger("punchButton");
+            Debug.Log("Mouse clicked!");
+            //testHealth.takeDamage(1);
+        }
+
+        if (Input.GetKeyDown("s")) //Simple test code, will block if S is pressed
+        {
+            animator.SetTrigger("blockButton");
+            Debug.Log("Down pressed!");
+        }
+
 
     }
 }
