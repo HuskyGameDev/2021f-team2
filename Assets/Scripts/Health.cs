@@ -40,11 +40,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // test input for taking damage
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            takeDamage(10);
-        }
+        
     }
 
     void CheckDeath()   //Called whenever a player takes damage.
