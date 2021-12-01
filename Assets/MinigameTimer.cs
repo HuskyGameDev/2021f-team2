@@ -4,19 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CountdownTimer : MonoBehaviour
+public class MinigameTimer : MonoBehaviour
 
 {
     public float totalTime = 5;
     float remainingTime;
     public bool timerActive = false;
     public Text timeText;
+    private Minigame mg;
+
+  
 
     // Start is called before the first frame update
     void Start()
     {
         timerActive = true;
         remainingTime = totalTime;
+        
+        
     }
 
     // Update is called once per frame
@@ -27,19 +32,36 @@ public class CountdownTimer : MonoBehaviour
             if (remainingTime > 0)
             {
                 remainingTime -= Time.deltaTime;
-                displayTime(remainingTime);
+                //displayTime(remainingTime);
             }
-            if (remainingTime <= 0)
-            { 
-                timerActive = false;
-                SceneManager.LoadScene("Minigame");
-            }
+            else if (remainingTime <= 0)
+            {
 
-        }   
-        
-        
+                mg = FindObjectOfType<Minigame>();
+
+                if (mg.getPlayer1Mash() > mg.getPlayer2Mash())
+                {
+                    SceneManager.LoadScene("SampleScenep1");
+                }
+                else if (mg.getPlayer1Mash() < mg.getPlayer2Mash())
+                {
+                    SceneManager.LoadScene("SampleScenep2");
+                }
+                else
+                {
+                    SceneManager.LoadScene("SampleScene");
+                }
+                    //change scene
+
+            }
+        }
+        else
+        {
+            remainingTime = 0;
+            timerActive = false;
+        }
     }
-
+    /*
     void displayTime(float time)
     {
         time += 1;
@@ -59,4 +81,6 @@ public class CountdownTimer : MonoBehaviour
         }
 
     }
+    */
 }
+

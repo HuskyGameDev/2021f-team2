@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth; //at the beginning of the game, set currentHealth equal to maxHealth
+
+
+
     }
 
     public int getHealth()
