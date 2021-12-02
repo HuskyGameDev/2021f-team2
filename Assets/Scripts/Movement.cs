@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
                 //What we want to add is a way to prevent users from mashing the Fire1 button
                 //And a way to stop player movement
                 animator.SetTrigger("punchButton");
-                Debug.Log("P2 Puncg!");
+                Debug.Log("P2 Punch!");
                 //testHealth.takeDamage(1);
             }
 

@@ -500,9 +500,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Hello!
+  m_Text: 'Tiny Tussle
 
-    this is the start screen'
+    P1: wasd/ctrl, P2: arrows/enter'
 --- !u!222 &884751266
 CanvasRenderer:
   m_ObjectHideFlags: 0
