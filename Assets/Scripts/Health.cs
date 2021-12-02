@@ -9,6 +9,10 @@ public class Health : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
+    public AudioSource audioSource;
+    public AudioClip soundsClip;
+    public float volume = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        audioSource.PlayOneShot(soundsClip, volume);
         CheckDeath();
     }
             

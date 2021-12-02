@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 
@@ -15,6 +16,7 @@ public class CountdownTimer : MonoBehaviour
     void Start()
     {
         timerActive = true;
+        remainingTime = 60;
     }
 
     // Update is called once per frame
@@ -26,6 +28,9 @@ public class CountdownTimer : MonoBehaviour
             {
                 remainingTime -= Time.deltaTime;
                 displayTime(remainingTime);
+            } else if (remainingTime == 0)
+            {
+               //SceneManager.loadScene();
             }
         }
         else
