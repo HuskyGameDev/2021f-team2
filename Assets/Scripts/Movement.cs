@@ -17,7 +17,10 @@ public class Movement : MonoBehaviour
     public float JumpForce = 13;
     Animator animator;
     public Player PlayerNumber;
-
+    public bool p2Blocking = false;
+    public bool p1Blocking  = false;
+    public float p2blockTimer = 0.25f;
+    public float p1blockTimer = 2f;
    
 
 
@@ -59,7 +62,26 @@ public class Movement : MonoBehaviour
             if (Input.GetButton("Player 1 Block")) //Simple test code, will block if S is pressed
             {
                 animator.SetTrigger("blockButton");
-                Debug.Log("P1 Block!");
+
+                p1Blocking = true;
+                Debug.Log("P1 is Blocking!");
+
+                /*
+                while (p1blockTimer > 0)
+                {
+                    p1blockTimer -= Time.deltaTime;
+
+                }
+                if (p1blockTimer == 0)
+                {
+                    p1Blocking = false;
+                    p1blockTimer = 2f;
+                    Debug.Log("P1 is done Blocking!");
+                }
+                */
+
+
+               
             }
         }
 
@@ -88,11 +110,38 @@ public class Movement : MonoBehaviour
                 //testHealth.takeDamage(1);
             }
 
-            if (Input.GetKeyDown("s")) //Simple test code, will block if S is pressed
+            if (Input.GetKeyDown("Player 2 Block")) //Simple test code, will block if S is pressed
             {
                 animator.SetTrigger("blockButton");
+
+                p2Blocking = true;
+                
+                while(p2blockTimer > 0)
+                {
+                    p2blockTimer -= Time.deltaTime;
+
+                }
+                if (p2blockTimer == 0)
+                {
+                    p2Blocking = false;
+                    p2blockTimer = 0.25f;
+                }
+                
                 Debug.Log("P2 Block!");
             }
+        }
+
+        while (p1blockTimer > 0 && p1Blocking == true)
+        {
+            p1blockTimer -= Time.deltaTime;
+            Debug.Log("While loop");
+
+        }
+        if (p1blockTimer <= 0)
+        {
+            p1Blocking = false;
+            p1blockTimer = 2f;
+            Debug.Log("P1 is done Blocking!");
         }
 
     }
