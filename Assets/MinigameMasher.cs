@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class Minigame : MonoBehaviour
+public class MinigameMasher : MonoBehaviour
 {
     int[] game = new int[2];
 

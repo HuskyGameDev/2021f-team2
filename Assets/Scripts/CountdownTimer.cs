@@ -32,7 +32,19 @@ public class CountdownTimer : MonoBehaviour
             if (remainingTime <= 0)
             { 
                 timerActive = false;
-                SceneManager.LoadScene("Minigame");
+
+
+                float m = Random.Range(0f, .999f);
+                int minigameSelector = (int)m;
+
+                if (minigameSelector == 0)
+                {
+                    SceneManager.LoadScene("Minigame Button Mashing");
+                }
+                else
+                {
+                    //more minigames
+                }
             }
 
         }   

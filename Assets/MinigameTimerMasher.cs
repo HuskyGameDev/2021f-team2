@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MinigameTimer : MonoBehaviour
+public class MinigameTimerMasher : MonoBehaviour
 
 {
     public float totalTime = 5;
     float remainingTime;
     public bool timerActive = false;
     public Text timeText;
-    private Minigame mg;
+    private MinigameMasher mg;
 
   
 
@@ -37,19 +37,22 @@ public class MinigameTimer : MonoBehaviour
             else if (remainingTime <= 0)
             {
 
-                mg = FindObjectOfType<Minigame>();
+                mg = FindObjectOfType<MinigameMasher>();
 
                 if (mg.getPlayer1Mash() > mg.getPlayer2Mash())
                 {
-                    SceneManager.LoadScene("SampleScenep1");
+                    Debug.Log("Player 1 Won Button Mashing!");
+                    SceneManager.LoadScene("Player1BuffFight");
                 }
                 else if (mg.getPlayer1Mash() < mg.getPlayer2Mash())
                 {
-                    SceneManager.LoadScene("SampleScenep2");
+                    Debug.Log("Player 2 Won Button Mashing!");
+                    SceneManager.LoadScene("Player2BuffFight");
                 }
                 else
                 {
-                    SceneManager.LoadScene("SampleScene");
+                    Debug.Log("Tie on Button Mashing!");
+                    SceneManager.LoadScene("BaseScene");
                 }
                     //change scene
 

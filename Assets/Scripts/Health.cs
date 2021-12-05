@@ -54,6 +54,10 @@ public class Health : MonoBehaviour
         if(currentHealth <= 0)
         {
             //die die you zombie bastards
+
+            //SceneManager.LoadScene("minigame name");
+            //do the same randomization thing here to select the minigame....
+            //actually make a minigame randomizer object?
         }
     }
 }

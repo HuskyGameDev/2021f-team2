@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
                 //testHealth.takeDamage(1);
             }
 
-            if (Input.GetButton("Player 1 Block")) //Simple test code, will block if S is pressed
+            if (Input.GetButton("Player 1 Block"))
             {
                 animator.SetTrigger("blockButton");
                 Debug.Log("P1 Block!");
@@ -88,7 +88,7 @@ public class Movement : MonoBehaviour
                 //testHealth.takeDamage(1);
             }
 
-            if (Input.GetKeyDown("s")) //Simple test code, will block if S is pressed
+            if (Input.GetButtonDown("Player 2 Block"))
             {
                 animator.SetTrigger("blockButton");
                 Debug.Log("P2 Block!");
